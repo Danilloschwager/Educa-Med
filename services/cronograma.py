@@ -63,8 +63,13 @@ def atualizar_tarefa(id_tarefa, novos_dados):
     for tarefa in tarefas:
         if tarefa["id"] == id_tarefa:
             for campo in CAMPOS_EDITAVEIS:
-                if novos_dados.get(campo) is not None:
-                    tarefa[campo] = novos_dados[campo]
+                valor = novos_dados.get(campo)
+                if isinstance(valor, str):
+                    valor = valor.strip()
+                # Ignora campos não enviados e textos vazios (não apaga a atividade sem querer)
+                if valor is None or valor == "":
+                    continue
+                tarefa[campo] = valor
             salvar_json(ARQUIVO_TAREFAS, tarefas)
             return tarefa
     raise KeyError(f"Tarefa {id_tarefa} não encontrada.")

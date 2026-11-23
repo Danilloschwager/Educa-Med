@@ -15,10 +15,19 @@ def listar_respostas():
     return ler_json(ARQUIVO_RESPOSTAS, [])
 
 
+def gerar_novo_id(respostas):
+    """Maior id + 1 (não repete id mesmo se algum registro for apagado do arquivo)."""
+    maior_id = 0
+    for registro in respostas:
+        if registro["id"] > maior_id:
+            maior_id = registro["id"]
+    return maior_id + 1
+
+
 def registrar_resposta(pergunta, resposta, onde_conferir, material=None):
     respostas = listar_respostas()
     registro = {
-        "id": len(respostas) + 1,
+        "id": gerar_novo_id(respostas),
         "pergunta": pergunta,
         "resposta": resposta,
         "onde_conferir": onde_conferir,

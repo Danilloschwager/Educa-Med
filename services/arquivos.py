@@ -6,6 +6,7 @@ Assim o cronograma e o histórico não somem quando o servidor reinicia.
 """
 
 import json
+import os
 from pathlib import Path
 
 # Variáveis com o caminho de cada arquivo usado pelo sistema
@@ -29,10 +30,17 @@ def ler_json(caminho, valor_padrao):
 
 
 def salvar_json(caminho, dados):
-    """Grava os dados no arquivo (cria a pasta 'dados/' se precisar)."""
+    """
+    Grava os dados no arquivo (cria a pasta 'dados/' se precisar).
+
+    Escreve primeiro num arquivo temporário e só depois troca pelo original.
+    Assim, se o servidor cair no meio da gravação, o JSON antigo continua inteiro.
+    """
     PASTA_DADOS.mkdir(exist_ok=True)
-    with open(caminho, "w", encoding="utf-8") as arquivo:
+    temporario = caminho.with_suffix(".tmp")
+    with open(temporario, "w", encoding="utf-8") as arquivo:
         json.dump(dados, arquivo, ensure_ascii=False, indent=2)
+    os.replace(temporario, caminho)  # troca "de uma vez só"
 
 
 def limpar_todos_os_dados():

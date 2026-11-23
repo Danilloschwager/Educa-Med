@@ -60,9 +60,14 @@ def obter_cliente():
     return _cliente
 
 
+# Textos de exemplo que NÃO são uma chave de verdade (o primeiro é o do .env.example)
+CHAVES_DE_EXEMPLO = ["", "cole_sua_chave_aqui", "coloque_sua_chave_aqui"]
+
+
 def chave_configurada():
-    chave = os.getenv("GROQ_API_KEY", "")
-    return chave != "" and chave != "coloque_sua_chave_aqui"
+    """True só se a GROQ_API_KEY tiver uma chave real (e não o texto de exemplo)."""
+    chave = os.getenv("GROQ_API_KEY", "").strip()
+    return chave not in CHAVES_DE_EXEMPLO
 
 
 def montar_contexto(mensagem, perfil, tarefas):

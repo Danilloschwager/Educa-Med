@@ -10,12 +10,13 @@ Fluxo de uma mensagem no /chat:
 """
 
 from pathlib import Path
+from typing import Literal
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from services import cronograma, respostas, seguranca
 from services.arquivos import limpar_todos_os_dados
@@ -35,21 +36,22 @@ class Mensagem(BaseModel):
     message: str
 
 
+# Field(max_length=...) impede textos gigantes; o FastAPI responde 422 sozinho se passar do limite
 class NovaTarefa(BaseModel):
-    dia: str
-    atividade: str
-    duracao: str
+    dia: str = Field(max_length=30)
+    atividade: str = Field(max_length=200)
+    duracao: str = Field(max_length=30)
 
 
 class EdicaoTarefa(BaseModel):
-    dia: str | None = None
-    atividade: str | None = None
-    duracao: str | None = None
+    dia: str | None = Field(default=None, max_length=30)
+    atividade: str | None = Field(default=None, max_length=200)
+    duracao: str | None = Field(default=None, max_length=30)
     concluida: bool | None = None
 
 
 class Checagem(BaseModel):
-    status: str  # "pendente", "conferida" ou "com_erro"
+    status: Literal["pendente", "conferida", "com_erro"]
 
 
 # ---------- Interface ----------
@@ -110,6 +112,8 @@ def listar_tarefas():
 def criar_tarefa(nova: NovaTarefa):
     if not nova.atividade.strip():
         raise HTTPException(status_code=400, detail="Descreva a atividade.")
+    if not nova.duracao.strip():
+        raise HTTPException(status_code=400, detail="Informe a duração (ex: 1h30).")
     return cronograma.criar_tarefa(nova.dia, nova.atividade, nova.duracao)
 
 

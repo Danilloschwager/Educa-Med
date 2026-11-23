@@ -99,10 +99,10 @@
 
       <form class="form-tarefa" id="form-tarefa">
         <h3>Adicionar tarefa</h3>
-        <input id="nova-atividade" placeholder="O que estudar" required>
+        <input id="nova-atividade" placeholder="O que estudar" maxlength="200" required>
         <div class="linha-form">
-          <input id="novo-dia" list="dias-semana" placeholder="Dia" required>
-          <input id="nova-duracao" placeholder="Duração (ex: 1h30)" required>
+          <input id="novo-dia" list="dias-semana" placeholder="Dia" maxlength="30" required>
+          <input id="nova-duracao" placeholder="Duração (ex: 1h30)" maxlength="30" required>
         </div>
         <datalist id="dias-semana">
           <option value="Segunda"><option value="Terça"><option value="Quarta">

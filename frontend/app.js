@@ -35,7 +35,7 @@ async function chamarApi(metodo, url, corpo) {
   const resposta = await fetch(url, opcoes);
   if (!resposta.ok) {
     const erro = await resposta.json().catch(() => ({}));
-    throw new Error(erro.detail || "Algo deu errado no servidor.");
+    throw new Error(textoDoErro(erro.detail));
   }
   return resposta.status === 204 ? null : resposta.json();
 }
@@ -48,6 +48,12 @@ function rolarParaBaixo() {
 // =====================================================================
 // CHAT
 // =====================================================================
+// Erros de validação do FastAPI (422) chegam como lista; os nossos chegam como texto
+function textoDoErro(detail) {
+  if (Array.isArray(detail)) return "Confira os campos: algum está vazio ou muito longo.";
+  return detail || "Algo deu errado no servidor.";
+}
+
 function adicionarMensagem(tipo, texto) {
   const div = document.createElement("div");
   div.className = `message ${tipo}`;
@@ -153,7 +159,8 @@ function mostrarDigitando() {
 
 async function enviarMensagem(texto) {
   texto = texto.trim();
-  if (!texto) return;
+  // Evita mandar a mesma mensagem duas vezes (o Enter funciona mesmo com o botão desativado)
+  if (!texto || botaoEnviar.disabled) return;
 
   sugestoes.hidden = true;
   adicionarMensagem("user", texto);
@@ -345,7 +352,9 @@ listaTarefas.addEventListener("click", async (e) => {
 });
 
 async function estudarTarefa(id, atividade) {
+  if (botaoEnviar.disabled) return; // já tem uma resposta da IA sendo gerada
   sugestoes.hidden = true;
+  botaoEnviar.disabled = true;
   adicionarMensagem("user", `Estudar: ${atividade}`);
   const digitando = mostrarDigitando();
   try {
@@ -356,6 +365,8 @@ async function estudarTarefa(id, atividade) {
   } catch (erro) {
     digitando.remove();
     adicionarMensagem("erro", erro.message);
+  } finally {
+    botaoEnviar.disabled = false;
   }
 }
 
@@ -392,8 +403,12 @@ botaoRecomecar.addEventListener("click", async () => {
     return;
   }
 
-  await chamarApi("DELETE", "/sessao");
-  location.reload();
+  try {
+    await chamarApi("DELETE", "/sessao");
+    location.reload();
+  } catch (erro) {
+    adicionarMensagem("erro", erro.message);
+  }
 });
 
 
