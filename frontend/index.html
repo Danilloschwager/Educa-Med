@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educa-Med — apoio de estudos para medicina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/estilo.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ===== Coluna 1: marca, princípios e senso crítico ===== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>Educa-Med</h1>
+        <svg class="underline" viewBox="0 0 94 8" fill="none" aria-hidden="true">
+          <path d="M2 5C22 1 42 1 48 4C54 7 74 1 92 4" stroke="#F0A84E" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <p>Apoio de IA para organizar seus estudos de medicina — no seu ritmo, com senso crítico.</p>
+      </div>
+
+      <section class="principles">
+        <h2>Como a IA te apoia aqui</h2>
+        <div class="principle">
+          <strong>Compreender</strong>
+          <span>Você sabe que está falando com uma IA e conhece seus limites.</span>
+        </div>
+        <div class="principle">
+          <strong>Criticar</strong>
+          <span>Respostas não são definitivas — confira sempre em fontes oficiais.</span>
+        </div>
+        <div class="principle">
+          <strong>Usar com apoio</strong>
+          <span>A IA organiza seu estudo; professores e livros seguem sendo a referência.</span>
+        </div>
+      </section>
+
+      <section class="critico">
+        <h2>Seu senso crítico</h2>
+        <div class="critico-taxa">
+          <span id="taxa-verificacao">0%</span>
+          <small>das respostas da IA foram checadas por você</small>
+        </div>
+        <div class="critico-numeros">
+          <div><b id="num-conferidas">0</b><small>conferidas</small></div>
+          <div><b id="num-erros">0</b><small>com erro</small></div>
+          <div><b id="num-pendentes">0</b><small>pendentes</small></div>
+        </div>
+      </section>
+
+      <button id="botao-recomecar" class="botao-secundario">Recomeçar do zero</button>
+    </aside>
+
+    <!-- ===== Coluna 2: chat ===== -->
+    <main class="chat">
+      <header class="chat-header">
+        <div><strong>Educa-Med</strong> · assistente de estudos</div>
+        <span class="selo">uso educacional</span>
+      </header>
+
+      <div class="aviso">
+        Não responde casos clínicos reais, diagnósticos ou medicações. Não substitui professores, livros ou diretrizes.
+      </div>
+
+      <div class="message-window" id="janela-mensagens" aria-live="polite"></div>
+
+      <div class="sugestoes" id="sugestoes">
+        <button data-texto="Tenho dificuldade em farmacologia e consigo estudar 2h por dia, de segunda a sexta.">Dificuldade em farmacologia</button>
+        <button data-texto="Prefiro fazer resumos e questões. Monte um cronograma de anatomia para a semana.">Cronograma de anatomia</button>
+        <button data-texto="Me explica farmacocinética e faz questões para eu treinar.">Explicar + questões</button>
+        <button data-texto="Meu paciente está com dor no peito, qual remédio ele deve tomar?" class="sugestao-teste">Testar limite: caso clínico</button>
+      </div>
+
+      <form class="input-area" id="form-chat">
+        <textarea id="campo-mensagem" rows="1" placeholder="Conte sua área de dificuldade, rotina ou como prefere estudar..."></textarea>
+        <button type="submit" id="botao-enviar">Enviar</button>
+      </form>
+    </main>
+
+    <!-- ===== Coluna 3: cronograma (CRUD) ===== -->
+    <section class="cronograma">
+      <div class="cronograma-topo">
+        <h2>Seu cronograma</h2>
+        <span id="area-atual" class="area-atual"></span>
+      </div>
+
+      <div class="progresso" id="bloco-progresso" hidden>
+        <div class="progresso-texto">
+          <span id="texto-progresso">0 de 0 tarefas</span>
+          <span id="tempo-total"></span>
+        </div>
+        <div class="barra"><div class="barra-preenchida" id="barra-progresso"></div></div>
+      </div>
+
+      <div id="lista-tarefas" class="lista-tarefas"></div>
+
+      <form class="form-tarefa" id="form-tarefa">
+        <h3>Adicionar tarefa</h3>
+        <input id="nova-atividade" placeholder="O que estudar" required>
+        <div class="linha-form">
+          <input id="novo-dia" list="dias-semana" placeholder="Dia" required>
+          <input id="nova-duracao" placeholder="Duração (ex: 1h30)" required>
+        </div>
+        <datalist id="dias-semana">
+          <option value="Segunda"><option value="Terça"><option value="Quarta">
+          <option value="Quinta"><option value="Sexta"><option value="Sábado"><option value="Domingo">
+        </datalist>
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

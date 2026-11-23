@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "pergunta": "Prefiro fazer resumos e questões. Monte um cronograma de anatomia para a semana.",
+    "resposta": "Olá! Vamos começar a organizar seus estudos de anatomia. Para montar um cronograma realista, preciso saber quanto tempo você pode dedicar por dia ou por semana. Quanto tempo você tem disponível para estudar?",
+    "onde_conferir": "livro-texto de anatomia (ex.: Gray’s Anatomy) ou diretrizes da Sociedade Brasileira de Anatomia",
+    "status": "pendente",
+    "material": null
+  },
+  {
+    "id": 2,
+    "pergunta": "3 horas por dia",
+    "resposta": "Ótimo! Vamos organizar suas 3 horas diárias de estudo focado em Anatomia. Abaixo está um cronograma simples para a semana, com foco em resumos e questões, que você pode ajustar conforme sua rotina.",
+    "onde_conferir": "",
+    "status": "pendente",
+    "material": null
+  },
+  {
+    "id": 3,
+    "pergunta": "cade as questoes",
+    "resposta": "Aqui estão as questões que você pediu, junto com um resumo didático e pontos-chave para reforçar seu estudo. Boa revisão!",
+    "onde_conferir": "Gray's Anatomy, Sociedade Brasileira de Anatomia",
+    "status": "pendente",
+    "material": {
+      "resumo": "O sistema cardiovascular é responsável por transportar sangue, oxigênio, nutrientes e resíduos por todo o corpo. Ele é composto pelo coração, vasos sanguíneos (artérias, veias e capilares) e sangue. O coração, um músculo cardíaco, possui quatro câmaras: átrio direito, ventrículo direito, átrio esquerdo e ventrículo esquerdo. A circulação sistêmica leva sangue oxigenado do coração para o corpo e retorna com sangue desoxigenado, enquanto a circulação pulmonar transporta sangue desoxigenado dos pulmões para o coração e devolve sangue oxigenado.",
+      "onde_conferir": "Gray's Anatomy, Sociedade Brasileira de Anatomia",
+      "pontos_chave": [
+        "1. O coração possui quatro câmaras, com átrios recebendo e ventrículos bombeando sangue.",
+        "2. Circulação sistêmica: ventrículo esquerdo → artérias → corpo → veias → átrio direito.",
+        "3. Circulação pulmonar: ventrículo direito → artérias pulmonares → pulmões → veias pulmonares → átrio esquerdo.",
+        "4. O sangue transporta oxigênio, CO₂, hormônios e nutrientes.",
+        "5. A pressão arterial é regulada pela resistência vascular e pelo débito cardíaco."
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual das seguintes estruturas é responsável por iniciar a condução elétrica que leva à contração do ventrículo esquerdo?",
+          "alternativas": [
+            "A. Nodo sinoatrial",
+            "B. Nodo atrioventricular",
+            "C. Feixe de His",
+            "D. Músculo papilar"
+          ],
+          "correta": 0,
+          "explicacao": "O nodo sinoatrial (SA) inicia o impulso elétrico que se propaga pelo coração, incluindo o ventrículo esquerdo."
+        },
+        {
+          "pergunta": "Qual é a principal função das artérias pulmonares?",
+          "alternativas": [
+            "A. Transportar sangue oxigenado para os pulmões",
+            "B. Transportar sangue desoxigenado para os pulmões",
+            "C. Transportar sangue oxigenado para o corpo",
+            "D. Transportar sangue desoxigenado para o coração"
+          ],
+          "correta": 1,
+          "explicacao": "As artérias pulmonares levam sangue desoxigenado do ventrículo direito para os pulmões."
+        },
+        {
+          "pergunta": "Qual estrutura impede o refluxo de sangue do ventrículo direito para o átrio direito?",
+          "alternativas": [
+            "A. Válvula mitral",
+            "B. Válvula tricúspide",
+            "C. Válvula aórtica",
+            "D. Válvula pulmonar"
+          ],
+          "correta": 1,
+          "explicacao": "A válvula tricúspide separa o ventrículo direito do átrio direito, evitando refluxo."
+        },
+        {
+          "pergunta": "O que caracteriza a circulação sistêmica?",
+          "alternativas": [
+            "A. Devolve sangue oxigenado ao coração",
+            "B. Transporta sangue desoxigenado dos pulmões",
+            "C. Transporta sangue oxigenado do coração para o corpo",
+            "D. Transporta sangue desoxigenado do corpo para os pulmões"
+          ],
+          "correta": 2,
+          "explicacao": "Na circulação sistêmica, o ventrículo esquerdo bombeia sangue oxigenado para todo o corpo."
+        },
+        {
+          "pergunta": "Qual das seguintes estruturas não faz parte do coração?",
+          "alternativas": [
+            "A. Nodo atrioventricular",
+            "B. Feixe de His",
+            "C. Válvula aórtica",
+            "D. Artéria pulmonar"
+          ],
+          "correta": 3,
+          "explicacao": "A artéria pulmonar é um vaso sanguíneo, não uma estrutura cardíaca interna."
+        }
+      ]
+    }
+  }
+]

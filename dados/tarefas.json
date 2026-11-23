@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "dia": "Segunda",
+    "atividade": "Revisão de tecidos e órgãos + 30 min de questões",
+    "duracao": "3h",
+    "concluida": false,
+    "origem": "ia"
+  },
+  {
+    "id": 2,
+    "dia": "Terça",
+    "atividade": "Estudo de sistemas (cardiovascular) + 30 min de questões",
+    "duracao": "3h",
+    "concluida": false,
+    "origem": "ia"
+  },
+  {
+    "id": 3,
+    "dia": "Quarta",
+    "atividade": "Estudo de sistemas (respiratório) + 30 min de questões",
+    "duracao": "3h",
+    "concluida": false,
+    "origem": "ia"
+  },
+  {
+    "id": 4,
+    "dia": "Quinta",
+    "atividade": "Estudo de sistemas (digestivo) + 30 min de questões",
+    "duracao": "3h",
+    "concluida": false,
+    "origem": "ia"
+  },
+  {
+    "id": 5,
+    "dia": "Sexta",
+    "atividade": "Revisão geral + 30 min de questões",
+    "duracao": "3h",
+    "concluida": false,
+    "origem": "ia"
+  }
+]
