@@ -37,7 +37,7 @@
 
 ## Sobre o projeto
 
-Estudantes de Medicina lidam com uma rotina intensa, muito conteúdo e um uso cada vez maior de IA nos estudos. A facilidade de obter respostas rápidas faz muitos aceitarem o que a IA diz sem verificar fontes ou entender suas limitações, o que na Medicina é especialmente arriscado.
+Estudantes de Medicina lidam com uma rotina exigente, muito conteúdo e um uso cada vez maior de IA nos estudos. A facilidade de obter respostas rápidas faz muitos aceitarem o que a IA diz sem verificar fontes ou entender suas limitações, o que na Medicina é especialmente arriscado.
 
 O **Educa-Med** usa a IA como **apoio** ao aprendizado, nunca como substituta do conhecimento:
 
