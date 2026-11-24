@@ -457,8 +457,4 @@ Distribuído sob a licença MIT.
 Desenvolvido pela **[MDN Solutions](https://github.com/MDN-Solutions)**
 
 </div>
----
 
-## 📄 Licença
-
-MIT.
