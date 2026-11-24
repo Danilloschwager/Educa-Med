@@ -1,5 +1,4 @@
 <div align="center">
-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
 
 # Educa-Med
 
